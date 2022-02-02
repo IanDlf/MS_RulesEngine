@@ -1,0 +1,4 @@
+com\techgeeknext\examples\drools\MS_moteur_reglesApplication.class
+com\techgeeknext\examples\drools\config\DroolsConfiguration.class
+com\techgeeknext\examples\drools\controller\FixedDepositRateController.class
+com\techgeeknext\examples\drools\domain\FDRequest_V1.class

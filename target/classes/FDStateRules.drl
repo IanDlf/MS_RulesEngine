@@ -1,0 +1,27 @@
+import  com.techgeeknext.examples.drools.domain.FDRequest_V1;
+
+import java.util.ArrayList;
+
+rule "Etat précedent : Attribué  Action : envoi automatique "
+    when
+        fdObject : FDRequest_V1( preStatus=="Attribué" && lastAction=="envoiAuto" && actor=="systeme" );
+    then
+        fdObject.setNextStatus("Transmis");
+
+        ArrayList<String> callList = new ArrayList<String>();
+        callList.add("notification");
+        callList.add("message");
+        fdObject.setCallsToAction(callList);
+
+end;
+
+rule "Etat précedent : Attribué  Action : changement d'équipe "
+    when
+        fdObject : FDRequest_V1( preStatus=="Attribué" && lastAction=="changementEquipe" );
+    then
+        fdObject.setNextStatus("Attribué");
+end;
+
+
+
+
